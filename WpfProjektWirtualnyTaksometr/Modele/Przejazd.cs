@@ -18,7 +18,7 @@ namespace WpfProjektWirtualnyTaksometr.Modele
 
         public string PunktStartowy { get; set; }
         public string PunktKoncowy { get; set; }
-        public double Kilometry { get; set; }
+        public decimal Kilometry { get; set; }
         public DateTime Data { get; set; }
 
         public int TaryfaId { get; set; }
