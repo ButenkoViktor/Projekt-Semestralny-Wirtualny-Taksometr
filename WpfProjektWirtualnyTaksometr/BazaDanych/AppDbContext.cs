@@ -78,7 +78,7 @@ namespace WpfProjektWirtualnyTaksometr.BazaDanych
                     PunktStartowy = "Plac Zbawiciela",
                     PunktKoncowy = "Dworzec Centralny",
                     Kilometry = 5.2m,
-                    Data = DateTime.Now,
+                    Data = new DateTime(2025, 5, 14, 12, 0, 0),
                     TaryfaId = 1,
                     Cena = 13.00m,
                     RodzajPlatnosci = RodzajPlatnosci.Gotowka,

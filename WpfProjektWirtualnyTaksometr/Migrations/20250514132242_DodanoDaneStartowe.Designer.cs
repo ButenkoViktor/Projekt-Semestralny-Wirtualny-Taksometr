@@ -11,7 +11,7 @@ using WpfProjektWirtualnyTaksometr.BazaDanych;
 namespace WpfProjektWirtualnyTaksometr.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250512093236_DodanoDaneStartowe")]
+    [Migration("20250514132242_DodanoDaneStartowe")]
     partial class DodanoDaneStartowe
     {
         /// <inheritdoc />
@@ -224,7 +224,7 @@ namespace WpfProjektWirtualnyTaksometr.Migrations
                         {
                             Id = 1,
                             Cena = 13.00m,
-                            Data = new DateTime(2025, 5, 12, 11, 32, 36, 334, DateTimeKind.Local).AddTicks(953),
+                            Data = new DateTime(2025, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             KierowcaId = 1,
                             Kilometry = 5.2m,
                             KlientId = 1,

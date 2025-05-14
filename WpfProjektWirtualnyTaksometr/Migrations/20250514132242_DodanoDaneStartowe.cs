@@ -61,7 +61,7 @@ namespace WpfProjektWirtualnyTaksometr.Migrations
             migrationBuilder.InsertData(
                 table: "Przejazdy",
                 columns: new[] { "Id", "Cena", "Data", "KierowcaId", "Kilometry", "KlientId", "PunktKoncowy", "PunktStartowy", "RodzajPlatnosci", "Status", "TaryfaId" },
-                values: new object[] { 1, 13.00m, new DateTime(2025, 5, 12, 11, 32, 36, 334, DateTimeKind.Local).AddTicks(953), 1, 5.2m, 1, "Dworzec Centralny", "Plac Zbawiciela", 0, 2, 1 });
+                values: new object[] { 1, 13.00m, new DateTime(2025, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified), 1, 5.2m, 1, "Dworzec Centralny", "Plac Zbawiciela", 0, 2, 1 });
         }
 
         /// <inheritdoc />
