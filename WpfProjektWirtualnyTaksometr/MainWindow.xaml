@@ -8,6 +8,8 @@
         Title="Wirtualny Taksometr" Height="450" Width="800"
         WindowStartupLocation="CenterScreen"
         WindowState="Normal"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
         Background="#1C1C1C">
 
     <Grid>
@@ -44,7 +46,7 @@
                    FontWeight="Bold"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,280,0,0"
+                   Margin="0,295,0,0"
                    FontSize="18"
                    Foreground="#FFFD" Height="24" Width="268"/>
 
@@ -53,7 +55,7 @@
                     VerticalAlignment="Top" 
                     HorizontalAlignment="Center" 
                     Width="510" 
-                    Margin="0,300,0,0" 
+                    Margin="0,320,0,0" 
                     Height="80">
 
         <Button Content="👤 KLIENT"
