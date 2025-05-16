@@ -5,8 +5,91 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfProjektWirtualnyTaksometr"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Wirtualny Taksometr" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        Background="#1C1C1C">
+
     <Grid>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="430"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Witamy w aplikacji EASY TAXI"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontSize="36"
+                   FontWeight="Bold"
+                   Margin="0,10,0,0"
+                   Foreground="DarkGoldenrod"
+                   TextAlignment="Center" Height="48" Width="506"/>
+
+        <Line X1="0" 
+              Y1="60" 
+              X2="800"
+              Y2="60" 
+              HorizontalAlignment="Center"
+              Stroke="DarkGoldenrod" 
+              StrokeThickness="2"/>
+        
+        <Image Source="Zdjecia/icono.png"
+               Width="500" Height="320"
+               Margin="0,20,0,0"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"/>
+
+        <TextBlock Text="Wybierz rolę, aby kontynuować"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,280,0,0"
+                   FontSize="18"
+                   Foreground="#FFFD" Height="24" Width="268"/>
+
+        
+        <StackPanel Orientation="Horizontal" 
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Center" 
+                    Width="510" 
+                    Margin="0,300,0,0" 
+                    Height="80">
+
+        <Button Content="👤 KLIENT"
+                Click="KlientClick"
+                Width="250" Height="60"
+                FontSize="20" FontWeight="Bold"
+                Foreground="Black"
+                Background="#FFD700"
+                BorderBrush="#FFD700"
+                Cursor="Hand"
+                BorderThickness="2"
+                Padding="10"
+                HorizontalContentAlignment="Center"
+                Margin="0,0,10,0">
+            
+        <Button.Effect>
+               <DropShadowEffect BlurRadius="10" ShadowDepth="3" Color="Gold"/>
+        </Button.Effect>
+
+            </Button>
+
+        <Button Content="🚖 KIEROWCA"
+                Click="KierowcaClick"
+                Width="250" Height="60" Margin="0,10"
+                FontSize="20" FontWeight="Bold"
+                Foreground="Black"
+                Background="#FFD700"
+                BorderBrush="#FFD700"
+                Cursor="Hand"
+                BorderThickness="2"
+                Padding="10"
+                HorizontalContentAlignment="Center">
+        <Button.Effect>
+               <DropShadowEffect BlurRadius="10" ShadowDepth="3" Color="Gold"/>
+       </Button.Effect>
+       </Button>
+        </StackPanel>
     </Grid>
 </Window>

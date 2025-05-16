@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfProjektWirtualnyTaksometr.Views;
 
 namespace WpfProjektWirtualnyTaksometr
 {
@@ -19,6 +20,19 @@ namespace WpfProjektWirtualnyTaksometr
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void KlientClick(object sender, RoutedEventArgs e)
+        {
+            var okno = new KlientWindow();
+            okno.Show();
+            this.Close(); 
+        }
+
+        private void KierowcaClick(object sender, RoutedEventArgs e)
+        {
+            var okno = new KierowcaWindow();
+            okno.Show();
+            this.Close(); 
         }
     }
 }
