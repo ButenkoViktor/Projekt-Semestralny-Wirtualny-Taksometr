@@ -122,6 +122,7 @@
         </Grid>
         <Button 
                 Content="🚖 Znajdź Taxi"
+                Click="ZamowTaxi_Click"
                 Height="60"
                 FontSize="20"
                 FontWeight="Bold"

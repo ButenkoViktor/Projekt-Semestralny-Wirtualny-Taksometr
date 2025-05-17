@@ -49,8 +49,8 @@ namespace WpfProjektWirtualnyTaksometr.BazaDanych
             // === Dane testowe ===
 
             modelBuilder.Entity<Klient>().HasData(
-                new Klient { Id = 1, Imie = "Jan Kowalski", Telefon = "123456789", Email = "jan@gmail.pl", Adres = "Warszawa" },
-                new Klient { Id = 2, Imie = "Anna Nowak", Telefon = "987654321", Email = "anna@gmail.pl", Adres = "Krakow" }
+                new Klient { Id = 1, Imie = "Jan", Nazwisko = "Kowalski", Telefon = "123456789", Email = "jan@gmail.pl", MiejsceStartu = "Warszawa" },
+                new Klient { Id = 2, Imie = "Anna", Nazwisko = "Nowak",  Telefon = "987654321", Email = "anna@gmail.pl", MiejsceStartu = "Krakow" }
             );
 
             modelBuilder.Entity<Taryfa>().HasData(
