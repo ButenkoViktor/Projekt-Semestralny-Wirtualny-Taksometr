@@ -12,7 +12,8 @@ namespace WpfProjektWirtualnyTaksometr.Modele
         public string Imie { get; set; }
         public string Telefon { get; set; }
         public string Email { get; set; }
-        public string Adres { get; set; }
+        public string MiejsceStartu { get; set; }
+        public DateTime DataZamowienia { get; set; } = DateTime.Now;
         public bool IsDeleted { get; set; }
 
         public List<Przejazd> Przejazdy { get; set; }
