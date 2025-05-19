@@ -28,4 +28,9 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="BazaDanych\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

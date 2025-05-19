@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfProjektWirtualnyTaksometr.BazaDanych;
 using WpfProjektWirtualnyTaksometr.Modele;
 
 namespace WpfProjektWirtualnyTaksometr.Views
@@ -36,15 +35,6 @@ namespace WpfProjektWirtualnyTaksometr.Views
                 MiejsceStartu = MiejsceOdbioruTextBox.Text,
                 DataZamowienia = DateTime.Now
             };
-
-            using (var context = new AppDbContext(DbContextHelper.Options))
-            {
-                context.Klienci.Add(klient);
-                context.SaveChanges();
-            }
-
-            MessageBox.Show("Taxi zostało zamówione! Oczekuj na kierowcę.");
-            this.Close();
         }
     }
 }

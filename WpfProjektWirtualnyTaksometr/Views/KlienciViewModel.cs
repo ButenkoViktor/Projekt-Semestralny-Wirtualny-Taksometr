@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using WpfProjektWirtualnyTaksometr.BazaDanych;
 using WpfProjektWirtualnyTaksometr.Modele;
 
 namespace WpfProjektWirtualnyTaksometr.ViewModels
@@ -35,10 +34,7 @@ namespace WpfProjektWirtualnyTaksometr.ViewModels
 
         public void WczytajKlientow()
         {
-            using (var context = new AppDbContext(DbContextHelper.Options))
-            {
-                Klienci = new ObservableCollection<Klient>(context.Klienci.ToList());
-            }
+            
         }
     }
 }
