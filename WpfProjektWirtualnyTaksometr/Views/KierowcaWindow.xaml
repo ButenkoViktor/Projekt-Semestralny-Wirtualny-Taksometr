@@ -5,8 +5,185 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfProjektWirtualnyTaksometr.Views"
         mc:Ignorable="d"
-        Title="KierowcaWindow" Height="450" Width="800">
+        Title="Wirtualny Taksometr" Height="800" Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
+        Background="#1C1C1C">
     <Grid>
-        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="760"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="🚕 EASY TAXI - Kierowcy"
+                   FontSize="26"
+                   FontWeight="Bold"
+                   TextAlignment="Center"
+                   Height="48"
+                   Width="800"
+                   Foreground="DarkGoldenrod"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,5,0,0"/>
+
+        <Line X1="0" 
+              Y1="40" 
+              X2="800"
+              Y2="40" 
+              HorizontalAlignment="Center"
+              Stroke="DarkGoldenrod" 
+              StrokeThickness="2"/>
+
+        <Grid Height="210"
+              Width="760" 
+              VerticalAlignment="Top" 
+              Margin="0,90,0,0">
+
+            <Border CornerRadius="20"
+                    BorderThickness="1"
+                    BorderBrush="#2b2b2b"
+                    Background="#2b2b2b">
+            </Border>
+
+            <StackPanel Margin="20,0,10,0">
+
+                <TextBlock Text="- KURS -"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Foreground="DarkGoldenrod"
+                           FontSize="20"
+                           FontWeight="Bold">
+                </TextBlock>
+
+                <StackPanel Width="700" 
+                        Height="60"
+                        HorizontalAlignment="Left" 
+                        Margin="10,0,0,0">
+
+                    <TextBlock Text="📍 Adres Początkowy" 
+                           FontSize="14"
+                           Foreground="White"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="0,0,0,3"/>
+
+                    <TextBox x:Name="AdresStartTextBox"
+                                 IsReadOnly="True"          
+                                 Height="30" 
+                                 Width="700"
+                                 HorizontalAlignment="Left"
+                                 Margin="0,0,0,100"
+                                 Background="#454343"
+                                 Foreground="White"
+                                 BorderBrush="DarkGoldenrod"
+                                 Padding="5"
+                                 TextChanged="AdresStartTextBox_TextChanged"/>
+                </StackPanel>
+
+                <StackPanel Width="700" 
+                        Height="60"  
+                        HorizontalAlignment="Left" 
+                        Margin="10,0,0,0">
+
+                    <TextBlock Text="📍 Adres Końcowy" 
+                          FontSize="14"
+                          Foreground="White"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          Margin="0,0,0,3"/>
+
+                    <TextBox x:Name="AdresKoniecTextBox"
+                         Height="30" 
+                         Width="700"
+                         HorizontalAlignment="Left"
+                         Margin="0,0,0,100"
+                         Background="#454343"
+                         Foreground="White"
+                         BorderBrush="DarkGoldenrod"
+                         Padding="5"/>
+                </StackPanel>
+
+                <Grid Width="700" 
+                      Height="60"  
+                      HorizontalAlignment="Left" 
+                      Margin="10,0,0,0" >
+
+                    <TextBlock Text="Kilometraż ⭢" 
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="DarkGoldenrod"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Margin="175,0,0,0"/>
+
+                    <Border CornerRadius="10"
+                        Background="#454343"
+                        BorderBrush="DarkGoldenrod"
+                        BorderThickness="2"
+                        Height="40"
+                        Width="100"
+                        Margin="50,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                        <TextBox x:Name="KilometrazTextBox"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Foreground="White"
+                         Padding="5"
+                         FontSize="16"
+                         VerticalContentAlignment="Center"/>
+                    </Border>
+
+                    <TextBlock Text=" km"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="DarkGoldenrod"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0,0,230,0">
+                    </TextBlock>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid Height="60"
+              Width="760" 
+              VerticalAlignment="Center" 
+              Margin="0,0,0,80">
+        <TextBlock Text="Taryfy"
+                   FontSize="20"
+                   Foreground="DarkGoldenrod"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="0,0,0,3"/>
+            <Line X1="70" 
+                  Y1="15" 
+                  X2="670"
+                  Y2="15" 
+                  HorizontalAlignment="Left"
+                  Stroke="DarkGoldenrod" 
+                  StrokeThickness="2"/>
+            <Border CornerRadius="5"
+                    BorderBrush="DarkGoldenrod"
+                    BorderThickness="2"
+                    Height="30"
+                    Width="75"
+                   
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right">
+
+
+                <TextBlock Text="tryb ..."
+                   FontSize="16"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+           
+            </Border>
+
+        </Grid>
     </Grid>
 </Window>

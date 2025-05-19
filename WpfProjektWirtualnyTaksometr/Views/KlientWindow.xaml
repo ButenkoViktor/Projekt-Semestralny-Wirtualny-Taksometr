@@ -129,7 +129,7 @@
                 Background="Gold"
                 Foreground="Black"
                 BorderBrush="Black"
-                Margin="0,280,0,10"
+                Margin="0,250,0,10"
                 Cursor="Hand"
                 HorizontalAlignment="Center"
                 Width="300">
@@ -137,5 +137,14 @@
                 <DropShadowEffect BlurRadius="10" ShadowDepth="2" Color="Gold"/>
             </Button.Effect>
         </Button>
+        <TextBlock Name="ZamowienieStatusText"
+           Text=""
+           HorizontalAlignment="Center"
+           VerticalAlignment="Bottom"
+           FontSize="16"
+           FontFamily="Arial"
+           FontWeight="Bold"
+           Foreground="DarkRed"
+           Margin="0,0,0,22"/>
     </Grid>
 </Window>

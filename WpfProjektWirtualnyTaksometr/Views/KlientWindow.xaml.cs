@@ -35,6 +35,14 @@ namespace WpfProjektWirtualnyTaksometr.Views
                 MiejsceStartu = MiejsceOdbioruTextBox.Text,
                 DataZamowienia = DateTime.Now
             };
+            ZamowienieStatusText.Text = "✅ Taxi zostało zamówione!";
+            ZamowienieStatusText.Foreground = new SolidColorBrush(Colors.LimeGreen);
+
+            ImieTextBox.Text = "";
+            NazwiskoTextBox.Text = "";
+            TelefonTextBox.Text = "";
+            EmailTextBox.Text = "";
+            MiejsceOdbioruTextBox.Text = "";
         }
     }
 }

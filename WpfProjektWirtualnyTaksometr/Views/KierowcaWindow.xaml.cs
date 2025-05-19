@@ -23,5 +23,10 @@ namespace WpfProjektWirtualnyTaksometr.Views
         {
             InitializeComponent();
         }
+
+        private void AdresStartTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
