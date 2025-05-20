@@ -28,5 +28,33 @@ namespace WpfProjektWirtualnyTaksometr.Views
         {
 
         }
+
+        protected override void OnStateChanged(EventArgs e)
+        {
+            base.OnStateChanged(e);
+            if (WindowState == WindowState.Maximized)
+            {
+                WindowState = WindowState.Normal;
+            }
+        }
+        private void DaneKierowcy_Click(object sender, RoutedEventArgs e)
+        {
+            var okno = new DaneKierowcyWindow();
+            okno.Show();
+           
+        }
+
+        private void Auto_Click(object sender, RoutedEventArgs e)
+        {
+            var okno = new AutoWindow();
+            okno.Show();
+            
+        }
+        private void Raporty_Click(object sender, RoutedEventArgs e)
+        {
+            var okno = new RaportyWindow();
+            okno.Show();
+           
+        }
     }
 }

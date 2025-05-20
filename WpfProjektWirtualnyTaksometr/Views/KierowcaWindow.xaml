@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfProjektWirtualnyTaksometr.Views"
         mc:Ignorable="d"
-        Title="Wirtualny Taksometr" Height="800" Width="800"
+        Title="Wirtualny Taksometr" Height="900" Width="800"
         WindowStartupLocation="CenterScreen"
         WindowState="Normal"
         ResizeMode="NoResize"
@@ -13,47 +13,47 @@
         Background="#1C1C1C">
     <Window.Resources>
         <Style x:Key="TariffRadioButtonStyle" TargetType="RadioButton">
-        <Setter Property="Background" Value="#2C2C2C"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Margin" Value="5"/>
-        <Setter Property="Padding" Value="10,5"/>
-        <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="RadioButton">
-                    <Border x:Name="border"
+            <Setter Property="Background" Value="#2C2C2C"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border x:Name="border"
                         Background="{TemplateBinding Background}"
                         BorderBrush="DarkGoldenrod"
                         BorderThickness="2"
                         CornerRadius="5">
-                        <TextBlock x:Name="text"
+                            <TextBlock x:Name="text"
                                Text="{TemplateBinding Content}"
                                Foreground="{TemplateBinding Foreground}"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontWeight="{TemplateBinding FontWeight}"
                                Padding="{TemplateBinding Padding}" />
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="Gold"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="Black"/>
-                            <Setter TargetName="text" Property="Foreground" Value="Black"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="Gold"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Gold"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black"/>
+                                <Setter TargetName="text" Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Gold"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="760"/>
+            <RowDefinition Height="Auto" MinHeight="915"/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
 
@@ -74,12 +74,11 @@
               Y2="40" 
               HorizontalAlignment="Center"
               Stroke="DarkGoldenrod" 
-              StrokeThickness="2"/>
+              StrokeThickness="2" Width="800"/>
 
-        <Grid Height="210"
-              Width="760" 
+        <Grid Height="210" 
               VerticalAlignment="Top" 
-              Margin="0,90,0,0">
+              Margin="20,90,20,0">
 
             <Border CornerRadius="20"
                     BorderThickness="1"
@@ -149,14 +148,18 @@
                       Height="60"  
                       HorizontalAlignment="Left" 
                       Margin="10,0,0,0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="17*"/>
+                    </Grid.RowDefinitions>
 
                     <TextBlock Text="Kilometraż ⭢" 
                            FontSize="22"
                            FontWeight="Bold"
                            Foreground="DarkGoldenrod"
                            HorizontalAlignment="Left"
-                           VerticalAlignment="Center"
-                           Margin="175,0,0,0"/>
+                           VerticalAlignment="Top"
+                           Margin="175,15,0,0" Grid.RowSpan="2"/>
 
                     <Border CornerRadius="10"
                         Background="#454343"
@@ -164,9 +167,9 @@
                         BorderThickness="2"
                         Height="40"
                         Width="100"
-                        Margin="50,0,0,0"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
+                        Margin="325,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top" Grid.RowSpan="2">
 
                         <TextBox x:Name="KilometrazTextBox"
                          Background="Transparent"
@@ -182,16 +185,15 @@
                            FontWeight="Bold"
                            Foreground="DarkGoldenrod"
                            HorizontalAlignment="Right"
-                           VerticalAlignment="Center"
-                           Margin="0,0,230,0">
+                           VerticalAlignment="Top"
+                           Margin="0,15,230,0" Grid.RowSpan="2">
                     </TextBlock>
                 </Grid>
             </StackPanel>
         </Grid>
-        <Grid Height="60"
-              Width="760" 
-              VerticalAlignment="Center" 
-              Margin="0,0,0,80">
+        <Grid Height="60" 
+              VerticalAlignment="Top" 
+              Margin="20,310,20,0">
             <TextBlock Text="Taryfy"
                    FontSize="20"
                    Foreground="DarkGoldenrod"
@@ -222,18 +224,17 @@
                            VerticalAlignment="Center"/>
 
             </Border>
-       </Grid>
-        <Grid Height="60"
-              Width="760" 
-              VerticalAlignment="Center" 
-              Margin="0,0,0,80">
-          <TextBlock Text="Taryfy"
+        </Grid>
+        <Grid Height="60" 
+              VerticalAlignment="Top" 
+              Margin="20,310,20,0">
+            <TextBlock Text="Taryfy"
                      FontSize="20"
                      Foreground="DarkGoldenrod"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
                      Margin="0,0,0,3"/>
-          <Line X1="70" 
+            <Line X1="70" 
                 Y1="15" 
                 X2="670"
                 Y2="15" 
@@ -247,8 +248,8 @@
                   Width="75"
                   VerticalAlignment="Top"
                   HorizontalAlignment="Right">
-                
-            <TextBlock Text="tryb ..."
+
+                <TextBlock Text="tryb ..."
                        FontSize="16"
                        Foreground="White"
                        HorizontalAlignment="Center"
@@ -257,27 +258,28 @@
             </Border>
 
         </Grid>
-       <Grid  HorizontalAlignment="Center" 
-              VerticalAlignment="Center" 
+        <Grid  HorizontalAlignment="Center" 
+              VerticalAlignment="Top"
+               Margin="0,330,0,0"
               Height="100" 
               Width="800" >
 
-         <RadioButton x:Name="T1" 
-                      Content="T1 (Dzień)" 
-                       FontSize="20"
-                       FontWeight="Bold"
-                       FontFamily="Segoe UI"
-                       HorizontalAlignment="Left"
-                       Width="155"
-                       Height="70"
-                       Margin="130 0 0 0"
-                       GroupName="Tariff"
-                       Background="#454343"
-                       Foreground="White" 
-                       BorderBrush="DarkGoldenrod"
-                       Style="{StaticResource TariffRadioButtonStyle}"/>
+            <RadioButton x:Name="T1" 
+                         Content="T1 (Dzień)" 
+                         FontSize="20"
+                         FontWeight="Bold"
+                         FontFamily="Segoe UI"
+                         HorizontalAlignment="Left"
+                         Width="155"
+                         Height="70"
+                         Margin="130 0 0 0"
+                         GroupName="Tariff"
+                         Background="#454343"
+                         Foreground="White" 
+                         BorderBrush="DarkGoldenrod"
+                         Style="{StaticResource TariffRadioButtonStyle}"/>
 
-         <RadioButton x:Name="T2" 
+            <RadioButton x:Name="T2" 
                       Content="T2 (Noc)"
                       FontSize="20"
                       FontWeight="Bold"
@@ -290,8 +292,8 @@
                       Foreground="White"
                       BorderBrush="DarkGoldenrod"
                       Style="{StaticResource TariffRadioButtonStyle}"/>
-      
-         <RadioButton x:Name="T3"
+
+            <RadioButton x:Name="T3"
                       Content="T3 (Święta)"
                       FontSize="20"
                       FontWeight="Bold"
@@ -306,32 +308,126 @@
                       BorderBrush="DarkGoldenrod"
                       Style="{StaticResource TariffRadioButtonStyle}"/>
         </Grid>
-        <Grid Height="300"
-              Width="760" 
-              VerticalAlignment="Center"
-              Margin="0 400 0 0">
-          <TextBlock Text="🧑Klienci"
+        <Grid Height="300" 
+              VerticalAlignment="Top"
+              Margin="20,430,20,0">
+            <TextBlock Text="🧑Klienci"
                      FontSize="20"
                      Foreground="DarkGoldenrod"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
-                     Margin="0 0 10 3"/>
-            
-          <Border CornerRadius="5"
+                     Margin="10,18,0,0"/>
+
+            <Border CornerRadius="5"
                   BorderBrush="DarkGoldenrod"
                   BorderThickness="3"
                   Height="200"
-                  Width="751">
+                  Width="750">
 
-          <ListBox x:Name="KlienciListBox" 
+                <ListBox x:Name="KlienciListBox" 
                    Height="200" 
-                   Width="750" 
+                   Width="751" 
                    Padding="2"
-                   Background="#454343"
+                   Background="#2b2b2b"
                    DisplayMemberPath="Imie">
-                    
-          </ListBox>
-          </Border>
+                </ListBox>
+            </Border>
         </Grid>
+        <Grid Height="90" 
+              VerticalAlignment="Top" 
+              Margin="0,690,0,0">
+
+            <Button  Content="🚖 Zakończ przejazd"       
+                     
+                     Height="60"
+                     FontSize="18"
+                     FontWeight="Bold"
+                     Background="Gold"
+                     Foreground="Black"
+                     BorderBrush="Gold"
+                     Margin="180 0 0 0"
+                     Cursor="Hand"
+                     HorizontalAlignment="Left"
+                     Width="200">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" Color="Gold"/>
+                </Button.Effect>
+            </Button>
+
+            <Button Content="❌ Anuluj przejazd"                  
+                    
+                    Height="60"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Background="Gold"
+                    Foreground="Black"
+                    BorderBrush="Red"
+                    Margin="0 0 180 0"
+                    Cursor="Hand"
+                    HorizontalAlignment="Right"
+                    Width="200">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="3" Color="Red"/>
+                </Button.Effect>
+            </Button>
+        </Grid>
+
+        <Border
+                Background="#2b2b2b"
+                CornerRadius="20"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Height="111"
+                Width="800"
+                Margin="0,804,0,0"
+                BorderBrush="#2d2d2d"
+                BorderThickness="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0">
+
+                <Button Background="#2b2b2b"
+            BorderBrush="#2b2b2b"
+            BorderThickness="2"
+            Margin="0 0 10 50"
+            Width="230"
+            Height="60"
+            Cursor="Hand"
+            Click="DaneKierowcy_Click">
+                    <StackPanel  Height="60" Width="230" Orientation="Horizontal">
+                        <TextBlock Text="🧍‍" FontSize="28" Foreground="Gold" Height="56" Width="30"/>
+                        <TextBlock Text="Dane Kierowcy" Foreground="White"  Width="160" Height="36" FontWeight="Bold" FontSize="18" Margin="10 0 0 0" />
+                    </StackPanel>
+                </Button>
+
+                <Button Background="#2b2b2b"
+                        BorderBrush="#2b2b2b"
+                        BorderThickness="2"
+                        Margin="0 0 0 50"
+                        Width="230"
+                        Height="60"
+                        Click="Auto_Click"
+                        Cursor="Hand">
+
+                    <StackPanel Height="60" Width="230" Orientation="Horizontal">
+                        <TextBlock Text="🚗" FontSize="28" Foreground="Gold" Height="56" Width="40" Margin="20 0 0 0"/>
+                        <TextBlock Text="Auto" Foreground="White"  Width="160" Height="36" FontWeight="Bold" FontSize="20" Margin="10 0 0 0" />
+                    </StackPanel>
+                </Button>
+
+                <Button Background="#2b2b2b"
+                        BorderBrush="#2b2b2b"
+                        BorderThickness="2"
+                        Margin="0 0 0 50"
+                        Width="230"
+                        Height="60"
+                        Click="Raporty_Click"   
+                        Cursor="Hand">
+                    <StackPanel Height="60" Width="230" Orientation="Horizontal">
+                        <TextBlock Text="📊"  FontSize="28" Foreground="Gold" Height="56" Width="40" Margin="20 0 0 0"/>
+                        <TextBlock Text="Raporty" Foreground="White"  Width="160" Height="36" FontWeight="Bold" FontSize="20" Margin="10 0 0 0" />
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
