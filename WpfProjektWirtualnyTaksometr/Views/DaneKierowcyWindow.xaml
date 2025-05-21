@@ -5,8 +5,162 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfProjektWirtualnyTaksometr.Views"
         mc:Ignorable="d"
-        Title="DaneKierowcyWindow" Height="450" Width="800">
+        Title="Wirtualny Taksometr" Height="460" Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
+        Background="#1C1C1C">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="450"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Dane kierowcy"
+                   FontSize="36"
+                   FontWeight="Bold"
+                   TextAlignment="Center"
+                   Height="48"
+                   Width="800"
+                   Foreground="DarkGoldenrod"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,0,0,0"/>
+
+        <Line X1="0" 
+              Y1="50" 
+              X2="800"
+              Y2="50" 
+              HorizontalAlignment="Center"
+              Stroke="DarkGoldenrod" 
+              StrokeThickness="2" Width="800"/>
+
+        <Grid Margin="0,6,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel  Grid.Column="0" 
+                         Margin="15,40,0,0" 
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Grid.RowSpan="3">
+
+                <TextBlock Text="🧑 Imię"
+                           Foreground="White" 
+                           Margin="5,15,0,5"/>
+
+                <TextBox x:Name="ImieTextBox" 
+                         Height="30" 
+                         Width="350"
+                         Background="#2C2C2C"
+                         Foreground="White"
+                         BorderBrush="Gold"
+                         Padding="5"/>
+
+                <TextBlock Text="📞 Telefon"
+                           Foreground="White"
+                           Margin="5,15,0,5"/>
+
+                <TextBox x:Name="TelefonTextBox"
+                         Height="30"
+                         Background="#2C2C2C" 
+                         Foreground="White"
+                         BorderBrush="Gold"
+                         Padding="5"/>
+            </StackPanel>
+
+
+            <StackPanel  Grid.Column="1" 
+                         Margin="0,40,15,0" 
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Top"
+                         Grid.RowSpan="3">
+
+                <TextBlock Text="👤 Nazwisko" 
+                           Foreground="White" 
+                           Margin="5,15,0,5"/>
+                <TextBox x:Name="NazwiskoTextBox" 
+                         Height="30" 
+                         Width="350"
+                         Background="#2C2C2C"
+                         Foreground="White"
+                         BorderBrush="Gold"
+                         Padding="5"/>
+
+                <TextBlock Text="📧 E-mail"
+                           Foreground="White" 
+                           Margin="5,15,0,5"/>
+                <TextBox x:Name="EmailTextBox" 
+                         Height="30"
+                         Background="#2C2C2C"
+                         Foreground="White"
+                         BorderBrush="Gold"
+                         Padding="5"/>
+            </StackPanel>
+            <TextBlock
+                Text ="🧍‍ Kierowcy"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Foreground="White"
+                Margin="10,195,0,0"
+                FontSize="17"
+                Grid.Row="2"
+                />
+            <ListBox x:Name="DriverListBox"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Bottom"
+                     Width="780"
+                     Height="100"  
+                     Background="#1E1E1E"
+                     BorderBrush="Gold"
+                     BorderThickness="1"
+                     Foreground="White"
+                     
+                     Cursor="Hand"
+                     Margin="0,225,0,0" 
+                     Grid.ColumnSpan="2" 
+                     Grid.Row="2">
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Gray" BorderThickness="0 0 0 1" Padding="5">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Imie}" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock Text="{Binding Nazwisko}" FontSize="13" />
+                                <TextBlock Text="{Binding Telefon}" FontSize="12" Foreground="LightGray"/>
+                                <TextBlock Text="{Binding Email}" FontSize="12" Foreground="Gray"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+
+        </Grid>
+        <Button 
+                Content="Zapisz"
+                Click="ZapiszDaneKierowcy_Click"
+                FontSize="25"
+                FontWeight="Bold"
+                Background="Gold"
+                Foreground="Black"
+                BorderBrush="Black"
+                Margin="0,340,0,24"
+                Cursor="Hand"
+                HorizontalAlignment="Center"
+                Height="60"
+                Width="300">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="2" Color="Gold"/>
+            </Button.Effect>
+        </Button>
+
     </Grid>
 </Window>

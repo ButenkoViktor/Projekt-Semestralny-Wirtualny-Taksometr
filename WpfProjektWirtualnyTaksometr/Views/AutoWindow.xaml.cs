@@ -23,5 +23,9 @@ namespace WpfProjektWirtualnyTaksometr.Views
         {
             InitializeComponent();
         }
+        private void DodajAuto_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -23,5 +23,18 @@ namespace WpfProjektWirtualnyTaksometr.Views
         {
             InitializeComponent();
         }
+        public DaneKierowcyWindow(string imie, string nazwisko, string telefon, string email)
+        {
+            InitializeComponent();
+            ImieTextBox.Text = imie;
+            NazwiskoTextBox.Text = nazwisko;
+            TelefonTextBox.Text = telefon;
+            EmailTextBox.Text = email;
+        }
+        private void ZapiszDaneKierowcy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
