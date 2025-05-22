@@ -9,13 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="BazaDanych\**" />
     <Compile Remove="Migrations\**" />
-    <EmbeddedResource Remove="BazaDanych\**" />
     <EmbeddedResource Remove="Migrations\**" />
-    <None Remove="BazaDanych\**" />
     <None Remove="Migrations\**" />
-    <Page Remove="BazaDanych\**" />
     <Page Remove="Migrations\**" />
   </ItemGroup>
 
