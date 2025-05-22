@@ -35,6 +35,16 @@ namespace WpfProjektWirtualnyTaksometr.Views
         {
 
         }
+        private void WybierzZdjecie_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                var imagePath = openFileDialog.FileName;
+                ZdjecieImage.Source = new BitmapImage(new Uri(imagePath));
+            }
+        }
 
     }
 }
