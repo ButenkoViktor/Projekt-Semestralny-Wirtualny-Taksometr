@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfProjektWirtualnyTaksometr.BazaDanych;
 using WpfProjektWirtualnyTaksometr.Modele;
 
 namespace WpfProjektWirtualnyTaksometr.Views
@@ -32,11 +33,28 @@ namespace WpfProjektWirtualnyTaksometr.Views
                 Nazwisko = NazwiskoTextBox.Text,
                 Telefon = TelefonTextBox.Text,
                 Email = EmailTextBox.Text,
-                MiejsceStartu = MiejsceOdbioruTextBox.Text,
+                MiejsceStartu = MiejsceOdbioruTextBox.Text, 
+                MiejsceOdbioru = MiejsceOdbioruTextBox.Text,
                 DataZamowienia = DateTime.Now
             };
-            ZamowienieStatusText.Text = "✅ Taxi zostało zamówione!";
-            ZamowienieStatusText.Foreground = new SolidColorBrush(Colors.LimeGreen);
+
+            try
+            {
+                using (var context = new TaksometrDbContext())
+                {
+                    context.EnsureCreated(); 
+                    context.Klient.Add(klient);
+                    context.SaveChanges();
+                }
+
+                ZamowienieStatusText.Text = "✅ Taxi zostało zamówione!";
+                ZamowienieStatusText.Foreground = new SolidColorBrush(Colors.LimeGreen);
+            }
+            catch (Exception ex)
+            {
+                ZamowienieStatusText.Text = "❌ Błąd przy zamówieniu: " + ex.Message;
+                ZamowienieStatusText.Foreground = new SolidColorBrush(Colors.Red);
+            }
 
             ImieTextBox.Text = "";
             NazwiskoTextBox.Text = "";
