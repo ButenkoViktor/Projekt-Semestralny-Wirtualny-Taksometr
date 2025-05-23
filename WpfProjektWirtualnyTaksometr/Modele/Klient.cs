@@ -16,8 +16,5 @@ namespace WpfProjektWirtualnyTaksometr.Modele
         public string MiejsceStartu { get; set; }
         public string MiejsceOdbioru { get; set; }
         public DateTime? DataZamowienia { get; set; }
-
-        public ICollection<Zlecenie> Zlecenia { get; set; }
     }
-
 }

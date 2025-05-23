@@ -15,7 +15,6 @@ namespace WpfProjektWirtualnyTaksometr.Modele
         public string Email { get; set; }
         public string ZdjeciePath { get; set; }
 
-        public ICollection<Zlecenie> Zlecenia { get; set; }
     }
 
 
