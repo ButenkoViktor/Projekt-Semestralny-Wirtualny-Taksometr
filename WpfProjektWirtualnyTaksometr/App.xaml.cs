@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows;
 using WpfProjektWirtualnyTaksometr.BazaDanych;
+using WpfProjektWirtualnyTaksometr.Modele;
 
 namespace WpfProjektWirtualnyTaksometr
 {
@@ -21,6 +22,10 @@ namespace WpfProjektWirtualnyTaksometr
 
             var mainWindow = new MainWindow();
             mainWindow.Show();
+        }
+        public static class AppState
+        {
+            public static Kierowca? AktualnyKierowca { get; set; }
         }
     }
 }

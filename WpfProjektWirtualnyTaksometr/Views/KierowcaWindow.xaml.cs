@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfProjektWirtualnyTaksometr.Modele;
 
 namespace WpfProjektWirtualnyTaksometr.Views
 {
@@ -19,11 +20,39 @@ namespace WpfProjektWirtualnyTaksometr.Views
     /// </summary>
     public partial class KierowcaWindow : Window
     {
+        public Klient? SelectedKlient { get; set; }
+        private void KlientListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectedKlient = (Klient)KlientListBox.SelectedItem;
+        }
         public KierowcaWindow()
         {
             InitializeComponent();
         }
+        private string GetSelectedTaryfa()
+        {
+            if (T1.IsChecked == true) return "Dzien";
+            if (T2.IsChecked == true) return "Noc";
+            if (T3.IsChecked == true) return "Swieta";
+            return "Dzien";
+        }
+        private decimal ObliczCeneKilometrowa()
+        {
+            if (!double.TryParse(KilometrazTextBox.Text, out double km))
+                return 0;
 
+            string selected = GetSelectedTaryfa();
+
+            decimal stawka = selected switch
+            {
+                "Dzien" => 3.9m,
+                "Noc" => 4.4m,
+                "Swieta" => 5.6m,
+                _ => 3.9m
+            };
+
+            return (decimal)km * stawka;
+        }
         private void AdresStartTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
