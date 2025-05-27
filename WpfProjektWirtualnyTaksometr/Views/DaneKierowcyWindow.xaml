@@ -129,6 +129,7 @@
                 Grid.Row="2"
                 />
             <ListBox x:Name="DriverListBox"
+                     MouseDoubleClick="DriverListBox_MouseDoubleClick"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Bottom"
                      Width="780"

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfProjektWirtualnyTaksometr.Views"
         mc:Ignorable="d"
-        Title="Wirtualny Taksometr" Height="900" Width="800"
+        Title="Wirtualny Taksometr" Height="900" Width="810"
         WindowStartupLocation="CenterScreen"
         WindowState="Normal"
         ResizeMode="NoResize"
@@ -75,7 +75,15 @@
               HorizontalAlignment="Center"
               Stroke="DarkGoldenrod" 
               StrokeThickness="2" Width="800"/>
-
+        <TextBlock x:Name="WyswietlImieNazwiskoText"
+           Text=""
+           FontSize="19"
+           FontWeight="Bold"
+           Foreground="DarkGoldenrod"
+           HorizontalAlignment="Right"
+           Margin="0,55,40,0"
+           VerticalAlignment="Top"/>
+        
         <Grid Height="210" 
               VerticalAlignment="Top" 
               Margin="20,90,20,0">
@@ -322,12 +330,14 @@
                   BorderBrush="DarkGoldenrod"
                   BorderThickness="3"
                   Height="200"
+                   HorizontalAlignment="Center"
                   Width="750">
 
                 <ListBox x:Name="KlientListBox" 
                    Height="200" 
                    Width="751" 
                    Padding="2"
+                   HorizontalAlignment="Center"
                    Background="#2b2b2b"
                    DisplayMemberPath="Imie">
                 </ListBox>
@@ -338,7 +348,7 @@
               Margin="0,690,0,0">
 
             <Button  Content="🚖 Zakończ przejazd"       
-                     Click="ZakonczPrzejazd_Click"
+                     
                      Height="60"
                      FontSize="18"
                      FontWeight="Bold"

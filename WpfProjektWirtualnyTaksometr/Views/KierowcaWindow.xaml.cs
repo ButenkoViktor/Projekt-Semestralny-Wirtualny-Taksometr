@@ -25,10 +25,13 @@ namespace WpfProjektWirtualnyTaksometr.Views
         {
             SelectedKlient = (Klient)KlientListBox.SelectedItem;
         }
+       
         public KierowcaWindow()
         {
             InitializeComponent();
+            WyswietlImieNazwiskoTextBlock();
         }
+
         private string GetSelectedTaryfa()
         {
             if (T1.IsChecked == true) return "Dzien";
@@ -57,7 +60,18 @@ namespace WpfProjektWirtualnyTaksometr.Views
         {
 
         }
-
+        private void WyswietlImieNazwiskoTextBlock()
+        {
+            if (App.AppState.AktualnyKierowca != null)
+            {
+                var k = App.AppState.AktualnyKierowca;
+                WyswietlImieNazwiskoText.Text = $"{k.Imie} {k.Nazwisko}";
+            }
+            else
+            {
+                WyswietlImieNazwiskoText.Text = "Brak wybranego kierowcy";
+            }
+        }
         protected override void OnStateChanged(EventArgs e)
         {
             base.OnStateChanged(e);
