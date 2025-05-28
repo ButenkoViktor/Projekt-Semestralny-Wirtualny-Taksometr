@@ -105,8 +105,18 @@
                          Padding="5"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Height="150" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,190,0,0">
-                <Border Width="100" Height="100" BorderBrush="Gold" BorderThickness="2" CornerRadius="50" Background="#2C2C2C">
-                    <Image x:Name="ZdjecieImage" Stretch="UniformToFill" ClipToBounds="True" />
+                <Border Width="100" Height="100"
+        BorderBrush="Gold"
+        BorderThickness="2"
+        CornerRadius="50"
+        Background="#2C2C2C">
+                    <Image x:Name="ZdjecieImage"
+           Stretch="UniformToFill"
+           ClipToBounds="True">
+                        <Image.Clip>
+                            <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                        </Image.Clip>
+                    </Image>
                 </Border>
                 <Button Content="📷 Dodaj zdjęcie"
             Click="WybierzZdjecie_Click"

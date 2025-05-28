@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfProjektWirtualnyTaksometr.Modele;
+using System.IO;
 
 namespace WpfProjektWirtualnyTaksometr.Views
 {
@@ -29,6 +30,7 @@ namespace WpfProjektWirtualnyTaksometr.Views
         public KierowcaWindow()
         {
             InitializeComponent();
+            WyswietlAutoTextBlock();
             WyswietlImieNazwiskoTextBlock();
         }
 
@@ -60,12 +62,28 @@ namespace WpfProjektWirtualnyTaksometr.Views
         {
 
         }
+        private void WyswietlAutoTextBlock()
+        {
+            if (App.AppState.AktualneAuto != null)
+            {
+                var a = App.AppState.AktualneAuto;
+                WyswietlAuto.Text = $"{a.Marka} {a.Model} ";
+            }
+            else
+            {
+                WyswietlAuto.Text = "";
+            }
+        }
         private void WyswietlImieNazwiskoTextBlock()
         {
             if (App.AppState.AktualnyKierowca != null)
             {
                 var k = App.AppState.AktualnyKierowca;
                 WyswietlImieNazwiskoText.Text = $"{k.Imie} {k.Nazwisko}";
+                if (!string.IsNullOrEmpty(k.ZdjeciePath) && File.Exists(k.ZdjeciePath))
+                {
+                    ZdjecieBrush.ImageSource = new BitmapImage(new Uri(k.ZdjeciePath));
+                }
             }
             else
             {
@@ -90,8 +108,12 @@ namespace WpfProjektWirtualnyTaksometr.Views
         private void Auto_Click(object sender, RoutedEventArgs e)
         {
             var okno = new AutoWindow();
+            okno.Closed += (s, args) =>
+            {
+                WyswietlAutoTextBlock();
+            };
             okno.Show();
-            
+
         }
         private void Raporty_Click(object sender, RoutedEventArgs e)
         {

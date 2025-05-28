@@ -26,6 +26,7 @@ namespace WpfProjektWirtualnyTaksometr
         public static class AppState
         {
             public static Kierowca? AktualnyKierowca { get; set; }
+            public static Auto? AktualneAuto { get; set; }
         }
     }
 }
