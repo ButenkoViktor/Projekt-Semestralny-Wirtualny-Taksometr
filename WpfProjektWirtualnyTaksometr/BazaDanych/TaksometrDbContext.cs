@@ -25,16 +25,20 @@ namespace WpfProjektWirtualnyTaksometr.BazaDanych
             modelBuilder.Entity<Zlecenie>().ToTable("Zlecenie");
 
             modelBuilder.Entity<Zlecenie>()
-                .HasOne(z => z.Klient)
-                .WithMany()
-                .HasForeignKey(z => z.KlientId)
-                .OnDelete(DeleteBehavior.Cascade);
+                        .HasOne(z => z.Klient)
+                        .WithMany()
+                        .HasForeignKey(z => z.KlientId)
+                        .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Zlecenie>()
-                .HasOne(z => z.Kierowca)
-                .WithMany()
-                .HasForeignKey(z => z.KierowcaId)
-                .OnDelete(DeleteBehavior.Cascade);
+                        .HasOne(z => z.Kierowca)
+                        .WithMany()
+                        .HasForeignKey(z => z.KierowcaId)
+                        .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Zlecenie>()
+                        .Property(z => z.Status)
+                        .HasConversion<string>();
         }
 
         public void EnsureCreated()

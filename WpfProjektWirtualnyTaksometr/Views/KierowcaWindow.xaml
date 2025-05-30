@@ -351,21 +351,38 @@
                      Margin="10,18,0,0"/>
 
             <Border CornerRadius="5"
-                  BorderBrush="DarkGoldenrod"
-                  BorderThickness="3"
-                  Height="200"
-                   HorizontalAlignment="Center"
-                  Width="750">
+        BorderBrush="DarkGoldenrod"
+        BorderThickness="3"
+        Height="200"
+        HorizontalAlignment="Center"
+        Width="750">
 
-                <ListBox x:Name="KlientListBox" 
-                   Height="200" 
-                   Width="751" 
-                   Padding="2"
-                   HorizontalAlignment="Center"
-                   Background="#2b2b2b"
-                   DisplayMemberPath="Imie">
+                <ListBox x:Name="KlientListBox"
+                          MouseDoubleClick="KlientListBox_MouseDoubleClick"
+             Height="200"
+             Width="751"
+             Padding="2"
+             HorizontalAlignment="Center"
+             Background="#2b2b2b"
+             Foreground="White"
+             ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Margin="5">
+                                <TextBlock Text="{Binding Imie}" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock Text="{Binding Nazwisko}" FontSize="13"/>
+                                <TextBlock Text="Miejsce startu:" Foreground="DarkGoldenrod" FontWeight="SemiBold"/>
+                                <TextBlock Text="{Binding MiejsceStartu}" FontSize="12"/>
+                                <TextBlock Text="Telefon:" Foreground="DarkGoldenrod" FontWeight="SemiBold"/>
+                                <TextBlock Text="{Binding Telefon}" FontSize="12"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+
                 </ListBox>
             </Border>
+            
         </Grid>
         <Grid Height="90" 
               VerticalAlignment="Top" 

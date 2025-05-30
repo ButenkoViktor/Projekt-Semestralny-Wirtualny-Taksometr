@@ -17,6 +17,7 @@ namespace WpfProjektWirtualnyTaksometr.Modele
         public string Taryfa { get; set; }
         public DateTime Data { get; set; }
         public decimal Cena { get; set; }
+        public StatusZlecenia Status { get; set; }
 
         public Klient Klient { get; set; }
         public Kierowca Kierowca { get; set; }

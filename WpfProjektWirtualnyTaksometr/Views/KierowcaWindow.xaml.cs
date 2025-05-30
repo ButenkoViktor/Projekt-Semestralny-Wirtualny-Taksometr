@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfProjektWirtualnyTaksometr.Modele;
 using System.IO;
+using WpfProjektWirtualnyTaksometr.BazaDanych;
+
 
 namespace WpfProjektWirtualnyTaksometr.Views
 {
@@ -32,6 +34,7 @@ namespace WpfProjektWirtualnyTaksometr.Views
             InitializeComponent();
             WyswietlAutoTextBlock();
             WyswietlImieNazwiskoTextBlock();
+            ZaladujDostepnychKlientow();
         }
 
         private string GetSelectedTaryfa()
@@ -119,7 +122,31 @@ namespace WpfProjektWirtualnyTaksometr.Views
         {
             var okno = new RaportyWindow();
             okno.Show();
-           
+
+        }
+        private void ZaladujDostepnychKlientow()
+        {
+
+            using (var context = new TaksometrDbContext())
+            {
+                var klienci = context.Klient
+                    .Where(k => !context.Zlecenie
+                        .Any(z => z.KlientId == k.Id && z.Status == StatusZlecenia.WTrakcie))
+                    .ToList();
+
+                KlientListBox.ItemsSource = klienci;
+            }
+        }
+        private void KlientListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (KlientListBox.SelectedItem is Klient wybranyKlient)
+            {
+                AdresStartTextBox.Text = wybranyKlient.MiejsceStartu;
+                MessageBoxResult result = MessageBox.Show(
+                "Klient został wybrany!\n\n✅ Sukces!",
+                "Informacja",
+                MessageBoxButton.OK);
+            }
         }
     }
 }
