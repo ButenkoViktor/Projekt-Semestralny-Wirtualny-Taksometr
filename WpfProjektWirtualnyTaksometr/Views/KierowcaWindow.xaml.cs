@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using WpfProjektWirtualnyTaksometr.Modele;
 using System.IO;
 using WpfProjektWirtualnyTaksometr.BazaDanych;
+using System.Collections.ObjectModel;
 
 namespace WpfProjektWirtualnyTaksometr.Views
 {
@@ -23,11 +24,8 @@ namespace WpfProjektWirtualnyTaksometr.Views
     public partial class KierowcaWindow : Window
     {
         public Klient? SelectedKlient { get; set; }
-        private void KlientListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SelectedKlient = (Klient)KlientListBox.SelectedItem;
-        }
-       
+        private ObservableCollection<Klient> _dostepniKlienci = new ObservableCollection<Klient>();
+
         public KierowcaWindow()
         {
             InitializeComponent();
@@ -131,9 +129,10 @@ namespace WpfProjektWirtualnyTaksometr.Views
             .Where(k => context.Zlecenie
                 .Where(z => z.KlientId == k.Id)
                 .All(z => z.Status != StatusZlecenia.WTrakcie && z.Status != StatusZlecenia.Oczekujace))
-                    .ToList();
+            .ToList();
 
-                KlientListBox.ItemsSource = klienci;
+                _dostepniKlienci = new ObservableCollection<Klient>(klienci);
+                KlientListBox.ItemsSource = _dostepniKlienci;
             }
         }
         private void KlientListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -149,6 +148,18 @@ namespace WpfProjektWirtualnyTaksometr.Views
         }
         private void ZakonczPrzejazd_Click(object sender, RoutedEventArgs e)
         {
+            if (App.AppState.AktualnyKierowca == null)
+            {
+                MessageBox.Show("Nie wybrano kierowcy!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (App.AppState.AktualneAuto == null)
+            {
+                MessageBox.Show("Nie wybrano auta!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             if (KlientListBox.SelectedItem is not Klient klient)
             {
                 MessageBox.Show("Wybierz klienta!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -168,27 +179,26 @@ namespace WpfProjektWirtualnyTaksometr.Views
 
             using (var context = new TaksometrDbContext())
             {
-            var zlecenie = new Zlecenie
-            {
-                KlientId = klient.Id,
-                KierowcaId = App.AppState.AktualnyKierowca.Id,
-                AdresPoczatkowy = adresStart,
-                AdresKoncowy = adresKoniec,
-                Kilometraz = kilometraz,
-                Taryfa = taryfa,
-                Data = DateTime.Now,
-                Cena = cena,
-                Status = StatusZlecenia.Zakonczone
-            };
+                var zlecenie = new Zlecenie
+                {
+                    KlientId = klient.Id,
+                    KierowcaId = App.AppState.AktualnyKierowca.Id,
+                    AdresPoczatkowy = adresStart,
+                    AdresKoncowy = adresKoniec,
+                    Kilometraz = kilometraz,
+                    Taryfa = taryfa,
+                    Data = DateTime.Now,
+                    Cena = cena,
+                    Status = StatusZlecenia.Zakonczone
+                };
 
                 context.Zlecenie.Add(zlecenie);
                 context.SaveChanges();
             }
 
-            var podsumowanie = new PodsumowanieWindow(klient, adresStart, adresKoniec, kilometraz, taryfa, cena);
-            podsumowanie.ShowDialog();
-
-            ZaladujDostepnychKlientow();
+            new PodsumowanieWindow(klient, adresStart, adresKoniec, kilometraz, taryfa, cena).ShowDialog();
+    
+            _dostepniKlienci.Remove(klient);
 
             KlientListBox.SelectedItem = null;
             AdresStartTextBox.Text = "";
