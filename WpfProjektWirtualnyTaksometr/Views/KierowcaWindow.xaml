@@ -389,7 +389,7 @@
               Margin="0,690,0,0">
 
             <Button  Content="🚖 Zakończ przejazd"       
-                     
+                     Click="ZakonczPrzejazd_Click"
                      Height="60"
                      FontSize="18"
                      FontWeight="Bold"

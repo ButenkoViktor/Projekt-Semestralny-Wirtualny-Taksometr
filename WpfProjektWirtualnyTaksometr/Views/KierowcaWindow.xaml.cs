@@ -37,21 +37,20 @@ namespace WpfProjektWirtualnyTaksometr.Views
             ZaladujDostepnychKlientow();
         }
 
-        private string GetSelectedTaryfa()
+        private string GetSelectedTarifa()
         {
-            if (T1.IsChecked == true) return "Dzien";
-            if (T2.IsChecked == true) return "Noc";
-            if (T3.IsChecked == true) return "Swieta";
-            return "Dzien";
+            if (T1.IsChecked == true)
+                return "Dzien";
+            if (T2.IsChecked == true)
+                return "Noc";
+            if (T3.IsChecked == true)
+                return "Swieta";
+
+            return "Dzien"; 
         }
-        private decimal ObliczCeneKilometrowa()
+        private decimal ObliczCene(double kilometraz, string taryfa)
         {
-            if (!double.TryParse(KilometrazTextBox.Text, out double km))
-                return 0;
-
-            string selected = GetSelectedTaryfa();
-
-            decimal stawka = selected switch
+            decimal stawka = taryfa switch
             {
                 "Dzien" => 3.9m,
                 "Noc" => 4.4m,
@@ -59,7 +58,7 @@ namespace WpfProjektWirtualnyTaksometr.Views
                 _ => 3.9m
             };
 
-            return (decimal)km * stawka;
+            return (decimal)kilometraz * stawka;
         }
         private void AdresStartTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -148,5 +147,67 @@ namespace WpfProjektWirtualnyTaksometr.Views
                 MessageBoxButton.OK);
             }
         }
+        private void ZakonczPrzejazd_Click(object sender, RoutedEventArgs e)
+        {
+            if (KlientListBox.SelectedItem is not Klient klient)
+            {
+                MessageBox.Show("Wybierz klienta!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (!double.TryParse(KilometrazTextBox.Text, out double kilometraz) || kilometraz <= 0)
+            {
+                MessageBox.Show("Podaj prawidłowy kilometraż!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            string taryfa = GetSelectedTarifa();
+
+            string adresStart = AdresStartTextBox.Text;
+            string adresKoniec = AdresKoniecTextBox.Text;
+
+            decimal cena = ObliczCene(kilometraz, taryfa);
+
+            var podsumowanie = new PodsumowanieWindow(klient, adresStart, adresKoniec, kilometraz, taryfa, cena);
+            if (App.AppState.AktualnyKierowca == null)
+            {
+                MessageBox.Show("Nie wybrano kierowcy!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            if (App.AppState.AktualneAuto == null)
+            {
+                MessageBox.Show("Nie wybrano auta!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            podsumowanie.ShowDialog();
+            
+
+            var zlecenie = new Zlecenie
+            {
+                KlientId = klient.Id,
+                KierowcaId = App.AppState.AktualnyKierowca.Id,
+                AdresPoczatkowy = adresStart,
+                AdresKoncowy = adresKoniec,
+                Kilometraz = kilometraz,
+                Taryfa = taryfa,
+                Data = DateTime.Now,
+                Cena = cena,
+                Status = StatusZlecenia.Zakonczone
+            };
+
+            using (var context = new TaksometrDbContext())
+            {
+                context.Zlecenie.Add(zlecenie);
+                context.SaveChanges();
+            }
+
+            MessageBox.Show("Zlecenie zostało zapisane!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+            KilometrazTextBox.Text = "";
+            AdresKoniecTextBox.Text = "";
+            AdresStartTextBox.Text = "";
+            KlientListBox.SelectedItem = null;
+            ZaladujDostepnychKlientow();
+        }
     }
+
 }
