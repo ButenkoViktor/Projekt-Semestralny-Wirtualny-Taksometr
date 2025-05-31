@@ -197,9 +197,59 @@ namespace WpfProjektWirtualnyTaksometr.Views
             }
 
             new PodsumowanieWindow(klient, adresStart, adresKoniec, kilometraz, taryfa, cena).ShowDialog();
-    
+
             _dostepniKlienci.Remove(klient);
 
+            KlientListBox.SelectedItem = null;
+            AdresStartTextBox.Text = "";
+            AdresKoniecTextBox.Text = "";
+            KilometrazTextBox.Text = "";
+        }
+        private void AnulujPrzejazd_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.AppState.AktualnyKierowca == null)
+            {
+                MessageBox.Show("Nie wybrano kierowcy!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (App.AppState.AktualneAuto == null)
+            {
+                MessageBox.Show("Nie wybrano auta!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (KlientListBox.SelectedItem is not Klient klient)
+            {
+                MessageBox.Show("Wybierz klienta!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            string adresStart = AdresStartTextBox.Text;
+            string adresKoniec = AdresKoniecTextBox.Text;
+ 
+            using (var context = new TaksometrDbContext())
+            {
+                var zlecenie = new Zlecenie
+                {
+                    KlientId = klient.Id,
+                    KierowcaId = App.AppState.AktualnyKierowca.Id,
+                    AdresPoczatkowy = adresStart,
+                    AdresKoncowy = adresKoniec,
+                    Kilometraz = 0, 
+                    Cena = 0m,      
+                    Taryfa = "Brak",
+                    Data = DateTime.Now,
+                    Status = StatusZlecenia.Anulowane
+                };
+
+                context.Zlecenie.Add(zlecenie);
+                context.SaveChanges();
+            }
+
+            MessageBox.Show("Przejazd został anulowany.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            _dostepniKlienci.Remove(klient);
             KlientListBox.SelectedItem = null;
             AdresStartTextBox.Text = "";
             AdresKoniecTextBox.Text = "";

@@ -406,7 +406,7 @@
             </Button>
 
             <Button Content="❌ Anuluj przejazd"                  
-                    
+                    Click="AnulujPrzejazd_Click"
                     Height="60"
                     FontSize="18"
                     FontWeight="Bold"

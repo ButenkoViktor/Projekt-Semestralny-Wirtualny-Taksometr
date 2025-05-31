@@ -10,6 +10,7 @@ namespace WpfProjektWirtualnyTaksometr.Modele
     {
         Oczekujace,
         WTrakcie,
-        Zakonczone
+        Zakonczone,
+        Anulowane
     }
 }
