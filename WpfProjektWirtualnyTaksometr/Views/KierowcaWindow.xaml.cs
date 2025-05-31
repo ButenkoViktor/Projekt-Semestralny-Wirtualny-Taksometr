@@ -15,7 +15,6 @@ using WpfProjektWirtualnyTaksometr.Modele;
 using System.IO;
 using WpfProjektWirtualnyTaksometr.BazaDanych;
 
-
 namespace WpfProjektWirtualnyTaksometr.Views
 {
     /// <summary>
@@ -129,8 +128,9 @@ namespace WpfProjektWirtualnyTaksometr.Views
             using (var context = new TaksometrDbContext())
             {
                 var klienci = context.Klient
-                    .Where(k => !context.Zlecenie
-                        .Any(z => z.KlientId == k.Id && z.Status == StatusZlecenia.WTrakcie))
+            .Where(k => context.Zlecenie
+                .Where(z => z.KlientId == k.Id)
+                .All(z => z.Status != StatusZlecenia.WTrakcie && z.Status != StatusZlecenia.Oczekujace))
                     .ToList();
 
                 KlientListBox.ItemsSource = klienci;
@@ -162,26 +162,12 @@ namespace WpfProjektWirtualnyTaksometr.Views
             }
 
             string taryfa = GetSelectedTarifa();
-
             string adresStart = AdresStartTextBox.Text;
             string adresKoniec = AdresKoniecTextBox.Text;
-
             decimal cena = ObliczCene(kilometraz, taryfa);
 
-            var podsumowanie = new PodsumowanieWindow(klient, adresStart, adresKoniec, kilometraz, taryfa, cena);
-            if (App.AppState.AktualnyKierowca == null)
+            using (var context = new TaksometrDbContext())
             {
-                MessageBox.Show("Nie wybrano kierowcy!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-            if (App.AppState.AktualneAuto == null)
-            {
-                MessageBox.Show("Nie wybrano auta!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-            podsumowanie.ShowDialog();
-            
-
             var zlecenie = new Zlecenie
             {
                 KlientId = klient.Id,
@@ -195,18 +181,19 @@ namespace WpfProjektWirtualnyTaksometr.Views
                 Status = StatusZlecenia.Zakonczone
             };
 
-            using (var context = new TaksometrDbContext())
-            {
                 context.Zlecenie.Add(zlecenie);
                 context.SaveChanges();
             }
 
-            MessageBox.Show("Zlecenie zostało zapisane!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
-            KilometrazTextBox.Text = "";
-            AdresKoniecTextBox.Text = "";
-            AdresStartTextBox.Text = "";
-            KlientListBox.SelectedItem = null;
+            var podsumowanie = new PodsumowanieWindow(klient, adresStart, adresKoniec, kilometraz, taryfa, cena);
+            podsumowanie.ShowDialog();
+
             ZaladujDostepnychKlientow();
+
+            KlientListBox.SelectedItem = null;
+            AdresStartTextBox.Text = "";
+            AdresKoniecTextBox.Text = "";
+            KilometrazTextBox.Text = "";
         }
     }
 
