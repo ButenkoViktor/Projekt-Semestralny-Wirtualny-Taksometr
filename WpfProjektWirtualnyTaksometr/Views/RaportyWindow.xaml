@@ -5,8 +5,102 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfProjektWirtualnyTaksometr.Views"
         mc:Ignorable="d"
-        Title="RaportyWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Wirtualny Taksometr"
+        Height="620"
+        Width="900"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
+        Background="#1C1C1C">
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,10">
+            <TextBlock Text="📋 Raporty z przejazdów"
+                       FontSize="26"
+                       FontWeight="Bold"
+                       Foreground="DarkGoldenrod"
+                       HorizontalAlignment="Center"
+                       Margin="0 10"/>
+            <Line X1="0" 
+                  Y1="0" 
+                  X2="900"
+                  Y2="0" 
+                  HorizontalAlignment="Center"
+                  Stroke="DarkGoldenrod" 
+                  StrokeThickness="2"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    Margin="0 0 0 15" Width="472">
+            <TextBlock Text="🔍 Wyszukaj kierowcę:"
+                       FontSize="16"
+                       Foreground="DarkGoldenrod"
+                       VerticalAlignment="Center"
+                       Margin="0 5 10 0"/>
+            <TextBox x:Name="SearchTextBox"
+                     Width="300"
+                     Height="32"
+                     Margin="0 5 0 0"
+                     FontSize="14"
+                     Background="#2b2b2b"
+                     Foreground="White"
+                     Padding="5"
+                     TextChanged="SearchTextBox_TextChanged"/>
+        </StackPanel>
+
+        <DataGrid x:Name="ZleceniaDataGrid"
+                  Grid.Row="2"
+                  AutoGenerateColumns="False"
+                  Background="#2b2b2b"
+                  Foreground="Black"
+                  Width="880"
+                  Height="400"
+                  RowHeight="35"
+                  FontSize="14"
+                  HeadersVisibility="Column"
+                  HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                  AlternatingRowBackground="#333"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  GridLinesVisibility="Horizontal"
+                  Margin="0,0,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Kierowca" Binding="{Binding KierowcaFullName}" Width="150"/>
+                <DataGridTextColumn Header="Klient" Binding="{Binding KlientFullName}" Width="150"/>
+                <DataGridTextColumn Header="Start" Binding="{Binding AdresPoczatkowy}" Width="150"/>
+                <DataGridTextColumn Header="Koniec" Binding="{Binding AdresKoncowy}" Width="140"/>
+                <DataGridTextColumn Header="KM" Binding="{Binding Kilometraz}" Width="50"/>
+                <DataGridTextColumn Header="Taryfa" Binding="{Binding Taryfa}" Width="80"/>
+                <DataGridTextColumn Header="Cena (zł)" Binding="{Binding Cena}" Width="90"/>
+                <DataGridTextColumn Header="Data" Binding="{Binding Data}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2"
+                  
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,10,10" Width="900">
+            <Button Content="⬇️ Eksportuj do PDF"
+                    
+                    Width="220"
+                    Height="45"
+                    HorizontalAlignment="Right"
+                    Background="DarkGoldenrod"
+                    Foreground="Black"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    Click="EksportujDoPdf_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
