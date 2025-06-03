@@ -55,19 +55,17 @@ Aplikacja została zbudowana zgodnie z dobrych praktyk projektowania aplikacji W
 
 ## 🛠️ Technologie i narzędzia
 
-Projekt został zrealizowany przy użyciu następujących technologii i bibliotek:
-|-----------------------------------------------------------------------------|
-| Komponent                    | Technologia                                  |
-|------------------------------|----------------------------------------------|
-| Język programowania          | C#                                           |
-| Framework                    | .NET 6 / .NET Core                           |
-| Interfejs użytkownika (UI)   | WPF (Windows Presentation Foundation)        |
-| ORM                          | Entity Framework Core                        |
-| Baza danych                  | SQLite (relacyjna, lokalna)                  |
-| IDE                          | Visual Studio 2022                           |
-| System kontroli wersji       | Git                                          |
-| Repozytorium online          | GitHub                                       |
-|-----------------------------------------------------------------------------|
+Projekt został zrealizowany przy użyciu następujących technologii i bibliotek:                           
+
+✅ Język programowania  ----->  C#                                           
+✅ Framework  ----->  .NET 6 / .NET Core                           
+✅ Interfejs użytkownika (UI)  ----->  WPF (Windows Presentation Foundation)       
+✅ ORM  ----->  Entity Framework Core                        
+✅ Baza danych  ----->  SQLite (relacyjna, lokalna)                  
+✅ IDE  ----->  Visual Studio 2022                          
+✅ System kontroli wersji  ----->  Git                                          
+✅ Repozytorium online  ----->  GitHub                              
+
 
 ## 🧱 Struktura bazy danych
 
