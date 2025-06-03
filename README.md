@@ -109,4 +109,67 @@ Baza danych oparta jest o system SQLite i składa się z 4 głównych tabel powi
 - `Cena`,
 - `Status`
 
+ ## 🖼️ Interfejs użytkownika (WPF) i estetyka
+Aplikacja Wirtualny Taksometr – EASY TAXI została zaprojektowana z myślą o prostocie obsługi i nowoczesnej estetyce. Interfejs oparty jest na technologii WPF/XAML
+ 
+### MainWindow.xaml – Okno startowe
+To pierwsze okno, które widzi użytkownik po uruchomieniu aplikacji.
+- Tytuł: Witamy w aplikacji EASY TAXI
+- Motyw: Ciemne tło (#1C1C1C) z kontrastującym złotym akcentem (DarkGoldenrod)
+- Układ: Logo + wybór roli użytkownika
+  
+Dostępne role:
+👤 KLIENT – przejście do formularza zamówienia (KlientWindow)
+🚖 KIEROWCA – przejście do panelu kierowcy (jeśli zaimplementowany)
 
+Efekty wizualne:
+- Przyciski z efektem DropShadowEffect, wyraźnie odróżniające się na tle ciemnego interfejsu.
+
+➡️ Cel okna: szybki wybór roli użytkownika i intuicyjna nawigacja.
+
+### KlientWindow.xaml - Okno formularza klienta 
+To główne okno służące do złożenia zamówienia kursu przez klienta.
+
+Rozkład i zawartość:
+Dane osobowe ----->	Imię, Nazwisko
+Kontakt -----> Telefon, E-mail
+Informacje o kursie -----> Miejsce odbioru
+
+Interakcje:
+- Przycisk 🚖 „Znajdź Taxi” – po kliknięciu waliduje dane i potwierdza zamówienie.
+- Tekst informacyjny ZamowienieStatusText – dynamicznie pokazuje sukces/błąd.
+
+Walidacja danych:
+- Imię, nazwisko, numer telefonu, e-mail oraz miejsce odbioru muszą zostać uzupełnione.
+- Dane wejściowe są wizualnie podkreślone (złote obramowanie, ciemne tło).
+
+Estetyka:
+- Spójna kolorystyka: ciemne tło (#1C1C1C), złote akcenty, białe teksty.
+- Przyciski i pola edycyjne utrzymane w nowoczesnym stylu bezprzyciskowym.
+- Efekty cieni dodają głębi przyciskom.
+  
+➡️ Cel okna: umożliwienie klientowi wprowadzenia podstawowych informacji i wysłania zgłoszenia taxi.
+
+### KierowcaWindow.xaml - Okno formularza kierowcy
+Aplikacja WPF dla **kierowców taksówek**, stworzona z myślą o wygodzie użytkowania, nowoczesnym wyglądzie i intuicyjnej obsłudze.
+
+## 🧭 Funkcjonalności
+
+- 📍 Wyświetlanie adresu początkowego i końcowego kursu
+- 📏 Ręczne wpisywanie kilometrażu
+- 🕒 Wybór taryfy: dzienna (T1), nocna (T2), świąteczna (T3)
+- 👥 Lista klientów z szybkim dostępem (double click)
+- 🚖 Zakończenie i anulowanie przejazdu
+- 📊 Dostęp do raportów, danych kierowcy i pojazdu
+- 🖼️ Wyświetlanie zdjęcia i danych kierowcy w nagłówku
+
+## 🖼️ Styl interfejsu
+
+Aplikacja zaprojektowana w stylu **dark UI** z **złotymi akcentami**. Interfejs zbudowany przy pomocy:
+- RadioButtonów z własnym stylem do wyboru taryf
+- ListBoxa do prezentacji klientów
+- Przyciski z ikonami i efektami cienia
+- Layout oparty na Grid / StackPanel / Border
+- Teksty i ikony emoji dla czytelności i przyjemnego UX
+
+➡️ Cel okna: Zapewnienie kierowcy taksówki intuicyjnego, estetycznego i funkcjonalnego narzędzia do zarządzania kursami, w tym wpisywania adresów startu i celu, rejestrowania kilometrażu, wyboru taryf (dzienna, nocna, świąteczna), przeglądania i szybkiego wybierania klientów oraz kontroli przebiegu przejazdu (zakończenie lub anulowanie kursu). Ponadto umożliwia szybki dostęp do danych kierowcy, informacji o pojeździe oraz generowania raportów, wspierając efektywną i profesjonalną obsługę taksówki.
