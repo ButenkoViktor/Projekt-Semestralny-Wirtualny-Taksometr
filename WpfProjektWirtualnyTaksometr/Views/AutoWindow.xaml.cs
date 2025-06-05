@@ -48,6 +48,23 @@ namespace WpfProjektWirtualnyTaksometr.Views
                 MessageBox.Show("Marka i model są wymagane.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            
+            if (!string.IsNullOrWhiteSpace(rejestracja) &&
+                !System.Text.RegularExpressions.Regex.IsMatch(rejestracja, @"^[A-Z0-9]{4,10}$"))
+            {
+                MessageBox.Show("Nieprawidłowy numer rejestracyjny. Używaj tylko wielkich liter i cyfr (min 4 znaki).", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+           
+            if (!string.IsNullOrWhiteSpace(vin))
+            {
+                if (vin.Length != 17 || !System.Text.RegularExpressions.Regex.IsMatch(vin, @"^[A-HJ-NPR-Z0-9]{17}$"))
+                {
+                    MessageBox.Show("Nieprawidłowy VIN. VIN musi mieć dokładnie 17 znaków i nie zawierać liter I, O, Q.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+            }
 
             var noweAuto = new Auto
             {

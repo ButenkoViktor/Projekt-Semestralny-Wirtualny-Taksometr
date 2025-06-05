@@ -168,7 +168,7 @@ namespace WpfProjektWirtualnyTaksometr.Views
 
             if (!double.TryParse(KilometrazTextBox.Text, out double kilometraz) || kilometraz <= 0)
             {
-                MessageBox.Show("Podaj prawidłowy kilometraż!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Podaj prawidłowy kilometraż (większy niż 0)!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -222,6 +222,11 @@ namespace WpfProjektWirtualnyTaksometr.Views
             if (KlientListBox.SelectedItem is not Klient klient)
             {
                 MessageBox.Show("Wybierz klienta!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            if (!double.TryParse(KilometrazTextBox.Text, out double kilometraz) || kilometraz <= 0)
+            {
+                MessageBox.Show("Podaj prawidłowy kilometraż (większy niż 0)!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 

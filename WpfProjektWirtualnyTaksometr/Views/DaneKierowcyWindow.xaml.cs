@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -77,6 +78,29 @@ namespace WpfProjektWirtualnyTaksometr.Views
             string nazwisko = NazwiskoTextBox.Text.Trim();
             string telefon = TelefonTextBox.Text.Trim();
             string email = EmailTextBox.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(imie) ||
+                string.IsNullOrWhiteSpace(nazwisko) ||
+                string.IsNullOrWhiteSpace(telefon) ||
+                string.IsNullOrWhiteSpace(email))
+            {
+                MessageBox.Show("❗ Proszę uzupełnić wszystkie pola (oprócz zdjęcia).", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            
+            if (!Regex.IsMatch(telefon, @"^\d{7,15}$"))
+            {
+                MessageBox.Show("❗ Numer telefonu powinien zawierać od 7 do 15 cyfr.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            
+            if (!Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                MessageBox.Show("❗ Niepoprawny adres e-mail.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             if (string.IsNullOrWhiteSpace(imie) || string.IsNullOrWhiteSpace(nazwisko))
             {

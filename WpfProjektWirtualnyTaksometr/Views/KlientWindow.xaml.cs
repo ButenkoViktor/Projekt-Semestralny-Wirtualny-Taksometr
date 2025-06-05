@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,6 +28,32 @@ namespace WpfProjektWirtualnyTaksometr.Views
         }
         private void ZamowTaxi_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(ImieTextBox.Text) ||
+                string.IsNullOrWhiteSpace(NazwiskoTextBox.Text) ||
+                string.IsNullOrWhiteSpace(TelefonTextBox.Text) ||
+                string.IsNullOrWhiteSpace(EmailTextBox.Text) ||
+                string.IsNullOrWhiteSpace(MiejsceOdbioruTextBox.Text))
+            {
+                ZamowienieStatusText.Text = "❗ Proszę uzupełnić wszystkie pola.";
+                ZamowienieStatusText.Foreground = new SolidColorBrush(Colors.Red);
+                return;
+            }
+
+  
+            if (!Regex.IsMatch(EmailTextBox.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                ZamowienieStatusText.Text = "❗ Niepoprawny adres e-mail.";
+                ZamowienieStatusText.Foreground = new SolidColorBrush(Colors.Red);
+                return;
+            }
+
+            
+            if (!Regex.IsMatch(TelefonTextBox.Text, @"^\d{7,15}$"))
+            {
+                ZamowienieStatusText.Text = "❗ Niepoprawny numer telefonu (7-15 cyfr).";
+                ZamowienieStatusText.Foreground = new SolidColorBrush(Colors.Red);
+                return;
+            }
             var klient = new Klient
             {
                 Imie = ImieTextBox.Text,
