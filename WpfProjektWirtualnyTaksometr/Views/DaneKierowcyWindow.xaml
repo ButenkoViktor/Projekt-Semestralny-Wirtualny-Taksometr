@@ -86,6 +86,7 @@
                 <TextBlock Text="👤 Nazwisko" 
                            Foreground="White" 
                            Margin="5,15,0,5"/>
+                
                 <TextBox x:Name="NazwiskoTextBox" 
                          Height="30" 
                          Width="350"
@@ -97,6 +98,7 @@
                 <TextBlock Text="📧 E-mail"
                            Foreground="White" 
                            Margin="5,15,0,5"/>
+                
                 <TextBox x:Name="EmailTextBox" 
                          Height="30"
                          Background="#2C2C2C"
@@ -104,40 +106,50 @@
                          BorderBrush="Gold"
                          Padding="5"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical" Height="150" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,190,0,0">
-                <Border Width="100" Height="100"
-        BorderBrush="Gold"
-        BorderThickness="2"
-        CornerRadius="50"
-        Background="#2C2C2C">
+            <StackPanel Orientation="Vertical"
+                        Height="150" Width="200"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center" 
+                        Grid.ColumnSpan="2"
+                        Margin="0,190,0,0">
+                
+                <Border Width="100" 
+                        Height="100"
+                        BorderBrush="Gold"
+                        BorderThickness="2"
+                        CornerRadius="50"
+                        Background="#2C2C2C">
+                    
                     <Image x:Name="ZdjecieImage"
-           Stretch="UniformToFill"
-           ClipToBounds="True">
+                           Stretch="UniformToFill"
+                           ClipToBounds="True">
                         <Image.Clip>
-                            <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                            <EllipseGeometry Center="50,50" 
+                                             RadiusX="50" 
+                                             RadiusY="50"/>
                         </Image.Clip>
                     </Image>
                 </Border>
+                
                 <Button Content="📷 Dodaj zdjęcie"
-            Click="WybierzZdjecie_Click"
-            Background="Gold"
-            Foreground="Black"
-            FontWeight="Bold"
-            Margin="0,10,0,0"
-            Width="130"
-            Height="30"
-            Cursor="Hand"/>
+                        Click="WybierzZdjecie_Click"
+                        Background="Gold"
+                        Foreground="Black"
+                        FontWeight="Bold"
+                        Margin="0,10,0,0"
+                        Width="130"
+                        Height="30"
+                        Cursor="Hand"/>
             </StackPanel>
 
-            <TextBlock
-                Text ="🧍‍ Kierowcy"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Foreground="White"
-                Margin="10,0,0,0"
-                FontSize="17"
-                Grid.Row="2"
-                />
+            <TextBlock Text ="🧍‍ Kierowcy"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Foreground="White"
+                       Margin="10,0,0,0"
+                       FontSize="17"
+                       Grid.Row="2"/>
+            
             <ListBox x:Name="DriverListBox"
                      MouseDoubleClick="DriverListBox_MouseDoubleClick"
                      HorizontalAlignment="Center"
@@ -169,8 +181,7 @@
 
 
         </Grid>
-        <Button 
-                Content="Zapisz"
+        <Button Content="Zapisz"
                 Click="ZapiszDaneKierowcy_Click"
                 FontSize="25"
                 FontWeight="Bold"
@@ -183,8 +194,11 @@
                 Cursor="Hand"
                 Height="60"
                 Width="300">
+            
             <Button.Effect>
-                <DropShadowEffect BlurRadius="10" ShadowDepth="2" Color="Gold"/>
+                <DropShadowEffect BlurRadius="10" 
+                                  ShadowDepth="2" 
+                                  Color="Gold"/>
             </Button.Effect>
         </Button>
 

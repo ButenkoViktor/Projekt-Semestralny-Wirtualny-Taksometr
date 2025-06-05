@@ -16,6 +16,7 @@
             <RowDefinition Height="Auto" MinHeight="430"/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
+        
         <TextBlock Text="🚕 EASY TAXI - Formularz Klienta"
                    FontSize="36"
                    FontWeight="Bold"
@@ -46,11 +47,11 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <StackPanel  Grid.Column="0" 
-                         Margin="10,80,0,0" 
-                         HorizontalAlignment="Left"
-                         VerticalAlignment="Top"
-                         Grid.RowSpan="3">
+            <StackPanel Grid.Column="0" 
+                        Margin="10,80,0,0" 
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Grid.RowSpan="3">
 
                 <TextBlock Text="🧑 Imię"
                            Foreground="White" 
@@ -86,6 +87,7 @@
                 <TextBlock Text="👤 Nazwisko" 
                            Foreground="White" 
                            Margin="5,15,0,5"/>
+                
                 <TextBox x:Name="NazwiskoTextBox" 
                          Height="30" 
                          Width="350"
@@ -97,6 +99,7 @@
                 <TextBlock Text="📧 E-mail"
                            Foreground="White" 
                            Margin="5,15,0,5"/>
+                
                 <TextBox x:Name="EmailTextBox" 
                          Height="30"
                          Background="#2C2C2C"
@@ -109,9 +112,11 @@
             <StackPanel Grid.ColumnSpan="2"
                         Margin="10,230, 20, 20" 
                         Grid.Row="2">
+                
                 <TextBlock Text="📍 Miejsce odbioru" 
                            Foreground="White"
                            Margin="5,0,0,5"/>
+                
                 <TextBox x:Name="MiejsceOdbioruTextBox" 
                          Height="30"
                          Background="#2C2C2C"
@@ -120,8 +125,7 @@
                          Padding="5"/>
             </StackPanel>
         </Grid>
-        <Button 
-                Content="🚖 Znajdź Taxi"
+        <Button Content="🚖 Znajdź Taxi"
                 Click="ZamowTaxi_Click"
                 Height="60"
                 FontSize="20"
@@ -133,18 +137,20 @@
                 Cursor="Hand"
                 HorizontalAlignment="Center"
                 Width="300">
+            
             <Button.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="2" Color="Gold"/>
             </Button.Effect>
         </Button>
+        
         <TextBlock Name="ZamowienieStatusText"
-           Text=""
-           HorizontalAlignment="Center"
-           VerticalAlignment="Bottom"
-           FontSize="16"
-           FontFamily="Arial"
-           FontWeight="Bold"
-           Foreground="DarkRed"
-           Margin="0,0,0,22"/>
+                   Text=""
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   FontSize="16"
+                   FontFamily="Arial"
+                   FontWeight="Bold"
+                   Foreground="DarkRed"
+                   Margin="0,0,0,22"/>
     </Grid>
 </Window>

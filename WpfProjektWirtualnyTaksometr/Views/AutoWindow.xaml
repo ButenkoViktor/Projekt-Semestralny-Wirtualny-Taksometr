@@ -26,11 +26,13 @@
                    Margin="0,0,0,20"/>
 
         
-        <StackPanel  Orientation="Vertical" Height="300" Margin="0 40 0 0" >
-            <TextBlock
-                Text = "➖ Marka ➖"
-                Foreground="White"
-                FontSize="14"/>
+        <StackPanel  Orientation="Vertical" 
+                     Height="300" 
+                     Margin="0 40 0 0" >
+            
+            <TextBlock Text = "➖ Marka ➖"
+                       Foreground="White"
+                       FontSize="14"/>
               
             <TextBox x:Name="MarkaBox"
                      Height="35"
@@ -43,6 +45,7 @@
             <TextBlock Text = "➖ Model ➖"             
                        Foreground="White"
                        FontSize="14"/>
+            
             <TextBox x:Name="ModelBox"
                      Height="35"
                      Padding="5"
@@ -50,9 +53,11 @@
                      Background="#2C2C2C"
                      Foreground="White"
                      FontSize="14"/>
+            
             <TextBlock Text = "➖ Numer rejestracyjny ➖"             
-            Foreground="White"
-            FontSize="14"/>
+                       Foreground="White"
+                       FontSize="14"/>
+            
             <TextBox x:Name="RejBox"
                      Height="35"
                      Padding="5"
@@ -60,9 +65,11 @@
                      Background="#2C2C2C"
                      Foreground="White"
                      FontSize="14"/>
+            
             <TextBlock Text = "➖ VIN ➖"             
                        Foreground="White"
                        FontSize="14"/>
+            
             <TextBox x:Name="VinBox"
                      Height="35"
                      Padding="5"
@@ -70,6 +77,7 @@
                      Foreground="White"
                      FontSize="14"/>
         </StackPanel>
+        
         <Button Content="➕ Dodaj pojazd"
                 Height="40"
                 VerticalAlignment="Bottom"
@@ -81,17 +89,22 @@
                 Click="DodajAuto_Click"/>
 
         <ListBox Grid.Row="2" 
-         x:Name="AutoList"
-         Margin="0,20,0,0"
-         Background="#1E1E1E"
-         Foreground="White"
-         BorderBrush="Gray"
-         BorderThickness="1"
-         FontSize="14"
-         MouseDoubleClick="AutoList_MouseDoubleClick">
+                 x:Name="AutoList"
+                 Margin="0,20,0,0"
+                 Background="#1E1E1E"
+                 Foreground="White"
+                 BorderBrush="Gray"
+                 BorderThickness="1"
+                 FontSize="14"
+                 MouseDoubleClick="AutoList_MouseDoubleClick">
+            
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="DarkGoldenrod" BorderThickness="1" Margin="5" Padding="10" CornerRadius="8">
+                    <Border BorderBrush="DarkGoldenrod" 
+                            BorderThickness="1" 
+                            Margin="5" 
+                            Padding="10" 
+                            CornerRadius="8">
                         <StackPanel>
                             <TextBlock Text="{Binding Marka}" FontWeight="Bold"/>
                             <TextBlock Text="{Binding Model}"/>

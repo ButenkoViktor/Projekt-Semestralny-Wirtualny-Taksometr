@@ -18,34 +18,63 @@
         Background="#2b2b2b">
         </Border>
 
-        <StackPanel  HorizontalAlignment="Center" Width="360" Margin="0,0,0,0">
-            <TextBlock Text="📋 Podsumowanie przejazdu" FontSize="22" FontWeight="Bold" Foreground="DarkGoldenrod" Margin="0,0,0,5" TextAlignment="Center"/>
+        <StackPanel  HorizontalAlignment="Center" 
+                     Width="360" 
+                     Margin="0,0,0,0">
+            
+            <TextBlock Text="📋 Podsumowanie przejazdu" 
+                       FontSize="22" 
+                       FontWeight="Bold" 
+                       Foreground="DarkGoldenrod"
+                       Margin="0,0,0,5" 
+                       TextAlignment="Center"/>
+            
             <Line X1="0" 
                   Y1="0" 
                   X2="400"
                   Y2="0" 
                   HorizontalAlignment="Center"
                   Stroke="DarkGoldenrod" 
+                  
                   StrokeThickness="2" Width="400"/>
-            <TextBlock x:Name="KlientTextBlock" Height="30" Margin="15 10 0 15" Foreground="DarkGoldenrod"/>
-            <TextBlock x:Name="AdresStartTextBlock" Height="30" Margin="15 0 0 15" Foreground="DarkGoldenrod"/>
-            <TextBlock x:Name="AdresKoniecTextBlock" Height="30" Margin="15 0 0 15" Foreground="DarkGoldenrod"/>
-            <TextBlock x:Name="DystansTextBlock" Height="30" Margin="15 0 0 15" Foreground="DarkGoldenrod"/>
-            <TextBlock x:Name="TaryfaTextBlock" Height="30" Margin="15 0 0 15" Foreground="DarkGoldenrod"/>
+            <TextBlock x:Name="KlientTextBlock" 
+                       Height="30" 
+                       Margin="15 10 0 15" 
+                       Foreground="DarkGoldenrod"/>
+            
+            <TextBlock x:Name="AdresStartTextBlock"
+                       Height="30"
+                       Margin="15 0 0 15" 
+                       Foreground="DarkGoldenrod"/>
+            
+            <TextBlock x:Name="AdresKoniecTextBlock" 
+                       Height="30" 
+                       Margin="15 0 0 15"
+                       Foreground="DarkGoldenrod"/>
+            
+            <TextBlock x:Name="DystansTextBlock" 
+                       Height="30"
+                       Margin="15 0 0 15"
+                       Foreground="DarkGoldenrod"/>
+            
+            <TextBlock x:Name="TaryfaTextBlock"
+                       Height="30"
+                       Margin="15 0 0 15" 
+                       Foreground="DarkGoldenrod"/>
+            
             <Border Background="#333"
-        CornerRadius="20"
-        BorderBrush="#1C1C1C"
-        BorderThickness="2"
-        Padding="15"
-        Margin="0,10,0,0"
-        HorizontalAlignment="Center">
+                    CornerRadius="20"
+                    BorderBrush="#1C1C1C"
+                    BorderThickness="2"
+                    Padding="15"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Center">
 
                 <Border.Effect>
-                    <DropShadowEffect 
-            Color="Black" 
-            BlurRadius="60" 
-            ShadowDepth="0.5" 
-            Opacity="0.9"/>
+                    <DropShadowEffect  Color="Black" 
+                                       BlurRadius="60" 
+                                       ShadowDepth="0.5" 
+                                       Opacity="0.9"/>
                 </Border.Effect>
 
                 <StackPanel>
@@ -62,20 +91,23 @@
             </Border>
 
             <Button  Content="↩ Powrót"       
-          Click="Powrot_Click"
-          Height="40"
-          Width="150"
-          FontSize="18"
-          FontWeight="Bold"
-          Margin="0,20,0,0"
-          Background="Gold"
-          Foreground="Black"
-          BorderBrush="Gold"
-          Cursor="Hand"
-          VerticalAlignment="Bottom"
-          HorizontalAlignment="Center">
+                    Click="Powrot_Click"
+                    Height="40"
+                    Width="150"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Margin="0,20,0,0"
+                    Background="Gold"
+                    Foreground="Black"
+                    BorderBrush="Gold"
+                    Cursor="Hand"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center">
+                
                 <Button.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" Color="Gold"/>
+                    <DropShadowEffect BlurRadius="10" 
+                                      ShadowDepth="2" 
+                                      Color="Gold"/>
                 </Button.Effect>
             </Button>
         </StackPanel>
