@@ -249,6 +249,37 @@ Umożliwia przegląd wszystkich zrealizowanych przejazdów z opcją wyszukiwania
 
 ➡️ Cel okna: zapewnienie przejrzystego wglądu w historię kursów i raporty finansowe kierowcy.
 
+## 🧭 Instrukcja instalacji programu Wirtualny Taksometr
+### ✅ Wymagania:
+- System operacyjny: Windows 10 / 11
+- .NET: .NET 8.0 Runtime (jeśli nie masz — instalator może poprosić o pobranie)
+- Uprawnienia administratora (do instalacji w Program Files)
+
+### 🔽 Krok 1: Pobierz instalator
+Pobierz plik: ---> Instalator_WirtualnyTaksometr.exe
+z folderu lub strony, z której udostępniono program.
+
+### 🛠️ Krok 2: Uruchom instalator
+Kliknij dwukrotnie plik Instalator_WirtualnyTaksometr.exe
+Jeśli pojawi się okno Kontroli Konta Użytkownika (UAC), kliknij "Tak" aby zezwolić na instalację.
+
+### Krok 3: Wybierz lokalizację instalacji
+1. Domyślna ścieżka to: `C:\Program Files (x86)\Wirtualny Taksometr`
+2. Możesz kliknąć „Przeglądaj…”, jeśli chcesz zmienić folder.
+3. Kliknij „Dalej”.
+
+### Krok 4: Utworzenie skrótu
+Instalator zapyta, czy chcesz dodać skrót na pulpicie. Zalecamy zaznaczenie tej opcji.
+Kliknij „Dalej”, a następnie „Zainstaluj”.
+
+### ✅ Krok 5: Zakończenie
+Po zakończeniu instalacji kliknij „Zakończ”, aby uruchomić program lub zamknąć instalator.
+
+### 🚖 Uruchamianie programu
+Po instalacji możesz uruchomić Wirtualny Taksometr:
+- z menu Start: Start → Wirtualny Taksometr
+- lub z pulpitu, jeśli zaznaczyłeś opcję skrótu
+
 ## ✅ Podsumowanie końcowe
 Aplikacja Wirtualny Taksometr – EASY TAXI to nowoczesne, funkcjonalne i estetyczne rozwiązanie dla małych firm transportowych oraz niezależnych kierowców. Dzięki przejrzystemu interfejsowi, integracji z bazą danych oraz automatyzacji procesu obsługi kursów, aplikacja stanowi solidne narzędzie codziennej pracy.
 Projekt ten jest nie tylko dowodem na praktyczne zastosowanie technologii WPF i Entity Framework, ale także świadectwem umiejętności analitycznego myślenia, dbałości o detale i № na potrzeby użytkownika.
