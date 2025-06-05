@@ -44,7 +44,7 @@ Aplikacja została zbudowana zgodnie z dobrych praktyk projektowania aplikacji W
 - Bezpieczeństwo danych dzięki lokalnej bazie danych.
 
 ## 📥 Instalacja i uruchomienie aplikacji
-- ***Aplikacja została przygotowana jako projekt edukacyjny bez instalatora. Wszystkie niezbędne pliki i baza danych znajdują się w repozytorium, a uruchomienie odbywa się bezpośrednio z Visual Studio.
+- *** Aplikacja została przygotowana jako projekt edukacyjny bez instalatora. Wszystkie niezbędne pliki i baza danych znajdują się w repozytorium, a uruchomienie odbywa się bezpośrednio z Visual Studio.
 1. **Pobrać repozytorium** (lub paczkę ZIP) z GitHub:
 2. **Otworzyć projekt** w środowisku Visual Studio (wersja 2019/2022 lub nowsza).
 3. **Skonfigurować bazę danych**:
@@ -131,9 +131,9 @@ To pierwsze okno, które widzi użytkownik po uruchomieniu aplikacji.
 To główne okno służące do złożenia zamówienia kursu przez klienta.
 
 ### Rozkład i zawartość:
-Dane osobowe ----->	Imię, Nazwisko
-Kontakt -----> Telefon, E-mail
-Informacje o kursie -----> Miejsce odbioru
+- Dane osobowe ----->	Imię, Nazwisko
+- Kontakt -----> Telefon, E-mail
+- Informacje o kursie -----> Miejsce odbioru
 
 ### Interakcje:
 - Przycisk 🚖 „Znajdź Taxi” – po kliknięciu waliduje dane i potwierdza zamówienie.
@@ -233,7 +233,7 @@ Wyświetla szczegóły przejazdu po jego zakończeniu.
 
 ➡️ Cel okna: przejrzyste przedstawienie szczegółów zrealizowanego kursu.
 
-##RaportyWindow.xaml – Okno raportów kierowcy
+## RaportyWindow.xaml – Okno raportów kierowcy
 Umożliwia przegląd wszystkich zrealizowanych przejazdów z opcją wyszukiwania.
 
 ### 🔎 Funkcjonalności:
